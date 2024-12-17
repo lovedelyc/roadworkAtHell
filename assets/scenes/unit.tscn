@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://p75pq6pvlk1a"]
+
+[ext_resource type="Script" path="res://entities/unit/unit.gd" id="1_8jtl7"]
+[ext_resource type="Script" path="res://entities/unit/hero/hero.gd" id="2_sd5v2"]
+[ext_resource type="Script" path="res://systems/turnmanager.gd" id="3_gdo3l"]
+
+[node name="Unit" type="Node2D"]
+script = ExtResource("1_8jtl7")
+
+[node name="Hero" type="Node2D" parent="."]
+script = ExtResource("2_sd5v2")
+
+[node name="TurnManager" type="Node" parent="."]
+script = ExtResource("3_gdo3l")
