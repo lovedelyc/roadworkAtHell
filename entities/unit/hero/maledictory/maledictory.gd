@@ -79,7 +79,7 @@ func on_enemy_turn_start(enemy):
 #grudge: moves the selected enemy to the back of the turn queue
 
 func grudge(enemy):
-	#ensure the TurnManager exists in the scene
+	#ensure the turnmanager exists in the scene
 	var turn_manager = get_tree().get_current_scene().get_node("TurnManager")
 	if not turn_manager:
 		print("Error: TurnManager not found!")

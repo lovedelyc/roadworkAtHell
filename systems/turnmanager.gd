@@ -47,6 +47,14 @@ func end_turn():
 		for unit in units:
 			if unit is Maledictory:
 				unit.on_enemy_turn_end(current_unit)
+				
+
+	if current_unit is Warlock:
+		current_unit.on_turn_end()
+	print("%s's turn ends." % current_unit.name)
+	
+	#rotate the queue to the next unit
+	turn_queue.append(turn_queue.pop_front())
 
 	#move to the next unit's turn
 	current_turn_index = (current_turn_index + 1) % units.size()
@@ -68,3 +76,14 @@ func next_turn():
 		turn_queue.append(current_unit)
 		print("Turn begins for %s." % current_unit.name)
 		current_unit.on_turn_start()
+
+#notify allies and apply hymn effect during their turn
+func notify_ally_action(ally, action_type):
+	for unit in get_tree().get_nodes_in_group("heroes"):
+		if unit is Bard:
+			unit.on_ally_action(ally, action_type)
+			
+#example usage during an action
+func unit_performs_action(unit, action_type):
+	notify_ally_action(unit, action_type)
+	print("%s performs %s action." % [unit.name, action_type])

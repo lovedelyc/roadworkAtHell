@@ -1,7 +1,7 @@
 class_name Ventriloquist
 extends Maledictory
 
-# Initialize stats
+#initialize stats
 func _init():
 	life = 9
 	soul = 14
@@ -10,7 +10,7 @@ func _init():
 	muscles = 9
 	action_points = 4
 
-var possession_active: bool = false  #flag to track if Possession is active
+var possession_active: bool = false  #flag to track if possession is active
 var max_action_points: int = 4       #max points for reset
 
 #possession: the head controlled by the ventriloquist possesses an ally until your next turn,
@@ -22,12 +22,12 @@ func possession():
 		print("Not enough action points to use Possession! You need at least 4.")
 		return
 
-	#check if Possession is already active
+	#check if possession is already active
 	if possession_active:
 		print("Possession is already active!")
 		return
 
-	#deduct action points and activate Possession
+	#deduct action points and activate possession
 	action_points -= 2
 	possession_active = true
 	print("The Ventriloquist uses Possession. It will last until their next turn.")

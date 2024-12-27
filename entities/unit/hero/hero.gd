@@ -10,3 +10,4 @@ var muscles: int
 
 #skill cost
 var action_points: int
+var attack_cost: int
