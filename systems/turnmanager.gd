@@ -82,8 +82,16 @@ func notify_ally_action(ally, action_type):
 	for unit in get_tree().get_nodes_in_group("heroes"):
 		if unit is Bard:
 			unit.on_ally_action(ally, action_type)
-			
+
 #example usage during an action
 func unit_performs_action(unit, action_type):
 	notify_ally_action(unit, action_type)
 	print("%s performs %s action." % [unit.name, action_type])
+
+func move_to_front(unit: Unit):
+	if unit in turn_queue:
+		turn_queue.erase(unit)
+		turn_queue.insert(0, unit)
+		print("%s moved to the front of the turn queue." % unit.name)
+	else:
+		print("%s is not in the turn queue." % unit.name)

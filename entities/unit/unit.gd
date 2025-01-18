@@ -2,11 +2,16 @@ class_name Unit
 extends Node2D
 
 var health: int = 100
+var max_health: int = 100
 var movement_range: int = 6
+var armor: int = 0
+var max_armor: int = 10
 var is_ethereal: bool = false
 
 #tracks status effects on the unit
 var status_effects: Dictionary = {}
+
+var buffs: Array = []
 
 #method to take damage
 func take_damage(amount, damage_type):
@@ -46,3 +51,20 @@ func process_status_effects():
 			effect["turns"] -= 1
 		else:
 			status_effects.erase(effect_name)
+
+#method to add a temporary buff
+func add_buff(buff: Dictionary):
+	buffs.append(buff)
+	print("%s receives a buff: %s" % [name, buff])
+
+#method to process buffs at the end of the unit's turn
+func process_buffs():
+	for buff in buffs:
+		if buff.has("stat_modifiers"):
+			for stat in buff["stat_modifiers"]:
+				self.set(stat, self.get(stat) + buff["stat_modifiers"][stat])
+
+		buff["duration"] -= 1
+		if buff["duration"] <= 0:
+			buffs.erase(buff)
+			print("%s's buff expired." % name)

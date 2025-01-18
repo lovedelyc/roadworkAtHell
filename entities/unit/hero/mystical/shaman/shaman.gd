@@ -16,24 +16,19 @@ const BLEED_TURNS = 3
 
 #scythe: devastating magical attack and applies bleed effect
 func scythe(enemies_in_front: Array[Unit]):
-	if enemies_in_front.empty():
+	if enemies_in_front.size() == 0:
 		print("No enemies in front to attack with Scythe.")
 		return
 
 	print("%s uses Scythe!" % name)
 
 	for enemy in enemies_in_front:
-		#apply magic damage
 		enemy.take_damage(MAGIC_DAMAGE, "magic")
-
-		#apply bleed effect
 		apply_bleed(enemy)
 
-#apply bleed effect to an enemy
 func apply_bleed(enemy: Unit):
 	print("%s is bleeding for %d damage for %d turns!" % [enemy.name, BLEED_DAMAGE, BLEED_TURNS])
 	
-	#add bleed damage over time to the enemy
 	enemy.add_status_effect("bleed", BLEED_TURNS, func(turn_count):
 		if turn_count > 0:
 			enemy.take_damage(BLEED_DAMAGE, "physical")
