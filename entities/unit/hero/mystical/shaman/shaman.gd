@@ -8,11 +8,14 @@ func _init():
 	mind = 13
 	motors = 8
 	muscles = 9
+	spritesheet = preload("res://entities/unit/hero/mystical/shaman/shaman_anim.png")
+
 
 #constants for scythe skill
 const MAGIC_DAMAGE = 10
 const BLEED_DAMAGE = 2
 const BLEED_TURNS = 3
+
 
 #scythe: devastating magical attack and applies bleed effect
 func scythe(enemies_in_front: Array[Unit]):

@@ -1,6 +1,7 @@
 class_name Unit
 extends Node2D
 
+
 var health: int = 100
 var max_health: int = 100
 var movement_range: int = 6
@@ -12,6 +13,20 @@ var is_ethereal: bool = false
 var status_effects: Dictionary = {}
 
 var buffs: Array = []
+
+
+var spritesheet: Texture2D
+
+# Graphics and animations
+@onready var sprite: Sprite2D = $Sprite2D
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+
+
+func _ready() -> void:
+	# Assign corresponding texture to the sprite
+	if spritesheet:
+		sprite.texture = spritesheet
+
 
 #method to take damage
 func take_damage(amount, damage_type):
