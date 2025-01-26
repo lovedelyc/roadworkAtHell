@@ -1,6 +1,7 @@
 class_name Siege
 extends Gunslinger
 
+
 # Initialize stats
 func _init():
 	life = 11

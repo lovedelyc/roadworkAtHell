@@ -1,7 +1,12 @@
 class_name Brigadier
 extends Executioner
 
-#initialize stats
+
+const DAMAGE_AMOUNT = 20  # Damage dealt to the enemy
+const INCAPACITATED_DURATION = 1  # Number of turns the enemy is incapacitated
+
+
+# Initialize stats
 func _init():
 	life = 13
 	soul = 8
@@ -9,10 +14,8 @@ func _init():
 	motors = 11
 	muscles = 15
 
-const DAMAGE_AMOUNT = 20  #damage dealt to the enemy
-const INCAPACITATED_DURATION = 1  #number of turns the enemy is incapacitated
 
-#chainsaw: attacks with a chainsaw and incapacitates the enemy
+# Chainsaw: attacks with a chainsaw and incapacitates the enemy
 func chainsaw(enemy: Unit):
 	if not enemy:
 		print("CHAINSAW skill could not be used. No enemy selected.")
@@ -20,10 +23,10 @@ func chainsaw(enemy: Unit):
 	
 	print("%s uses CHAINSAW on %s!" % [name, enemy.name])
 	
-	#deal damage to the enemy
+	# Deal damage to the enemy
 	enemy.take_damage(DAMAGE_AMOUNT, "physical")
 	
-	#apply incapacitated status effect
+	# Apply incapacitated status effect
 	if not enemy.has_method("apply_status_effect"):
 		print("The selected enemy does not support status effects.")
 		return

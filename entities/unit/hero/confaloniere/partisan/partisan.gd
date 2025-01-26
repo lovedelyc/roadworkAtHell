@@ -1,7 +1,13 @@
 class_name Partisan
 extends Confaloniere
 
-#initialize stats
+
+const DAMAGE_BOOST = 1  #additional damage for allies
+const ARMOR_RECOVERY = 2  #armor restored for allies
+const DURATION = 2  #number of turns the effect lasts
+
+
+# Initialize stats
 func _init():
 	life = 10
 	soul = 10
@@ -9,22 +15,19 @@ func _init():
 	motors = 11
 	muscles = 11
 
-const DAMAGE_BOOST = 1  #additional damage for allies
-const ARMOR_RECOVERY = 2  #armor restored for allies
-const DURATION = 2  #number of turns the effect lasts
 
-#charge: boosts all allies' damage attributes and restores armor
+# Charge: boosts all allies' damage attributes and restores armor
 func charge(allies: Array, turn_manager: TurnManager):
 	if not allies or not turn_manager:
 		print("Charge skill could not be used. Allies or turn manager missing.")
 		return
-
+	
 	print("%s uses Charge! All allies gain +%d to damage attributes and recover %d armor for %d turns." 
 		  % [name, DAMAGE_BOOST, ARMOR_RECOVERY, DURATION])
-
-	#apply the effects to all allies
+	
+	# Apply the effects to all allies
 	for ally in allies:
-		#temporarily boost damage attributes
+		# Temporarily boost damage attributes
 		ally.add_buff({
 			"stat_modifiers": {
 				"physical_damage": DAMAGE_BOOST,
@@ -33,8 +36,8 @@ func charge(allies: Array, turn_manager: TurnManager):
 			},
 			"duration": DURATION
 		})
-
-		#restore armor
+		
+		# Restore armor
 		ally.armor += ARMOR_RECOVERY
 		if ally.armor > ally.max_armor:
 			ally.armor = ally.max_armor

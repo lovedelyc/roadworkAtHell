@@ -1,6 +1,7 @@
 class_name Pontiff
 extends Divinespeaker
 
+
 # Initialize stats
 func _init():
 	life = 9

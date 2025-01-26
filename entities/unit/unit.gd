@@ -9,11 +9,9 @@ var armor: int = 0
 var max_armor: int = 10
 var is_ethereal: bool = false
 
-#tracks status effects on the unit
+# Tracks status effects on the unit
 var status_effects: Dictionary = {}
-
 var buffs: Array = []
-
 
 var spritesheet: Texture2D
 
@@ -28,7 +26,7 @@ func _ready() -> void:
 		sprite.texture = spritesheet
 
 
-#method to take damage
+# Method to take damage
 func take_damage(amount, damage_type):
 	health -= amount
 	print("%s takes %d %s damage. Remaining health: %d" % [name, amount, damage_type, health])
@@ -41,23 +39,26 @@ func take_damage(amount, damage_type):
 	health -= amount
 	print("%s takes %d %s damage. Remaining health: %d" % [name, amount, damage_type, health])
 	
-	#check if the enemy is defeated
+	# Check if the enemy is defeated
 	if health <= 0:
 		die()
 
-#handle death
+
+# Handle death
 func die():
 	print("%s has died!" % name)
 	queue_free()
 
-#add a status effect
+
+# Add a status effect
 func add_status_effect(effect_name: String, duration: int, callback: Callable):
 	status_effects[effect_name] = {
 		"turns": duration,
 		"callback": callback
 	}
 
-#process all status effects (call this per turn)
+
+# Process all status effects (call this per turn)
 func process_status_effects():
 	for effect_name in status_effects.keys():
 		var effect = status_effects[effect_name]
@@ -67,12 +68,14 @@ func process_status_effects():
 		else:
 			status_effects.erase(effect_name)
 
-#method to add a temporary buff
+
+# Method to add a temporary buff
 func add_buff(buff: Dictionary):
 	buffs.append(buff)
 	print("%s receives a buff: %s" % [name, buff])
 
-#method to process buffs at the end of the unit's turn
+
+# Method to process buffs at the end of the unit's turn
 func process_buffs():
 	for buff in buffs:
 		if buff.has("stat_modifiers"):

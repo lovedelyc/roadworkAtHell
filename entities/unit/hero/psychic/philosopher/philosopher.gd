@@ -1,6 +1,7 @@
 class_name Philosopher
 extends Psychic
 
+
 # Initialize stats
 func _init():
 	life = 8

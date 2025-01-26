@@ -1,6 +1,7 @@
 class_name Earthsplitter
 extends Psychic
 
+
 # Initialize stats
 func _init():
 	life = 7

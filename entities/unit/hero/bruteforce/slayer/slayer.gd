@@ -1,6 +1,7 @@
 class_name Slayer
 extends Bruteforce
 
+
 # Initialize stats
 func _init():
 	life = 13

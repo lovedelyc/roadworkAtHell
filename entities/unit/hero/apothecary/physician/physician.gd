@@ -1,6 +1,7 @@
 class_name Physician
 extends Apothecary
 
+
 # Initialize stats
 func _init():
 	life = 10

@@ -1,6 +1,7 @@
 class_name Worker
 extends Bruteforce
 
+
 # Initialize stats
 func _init():
 	life = 11

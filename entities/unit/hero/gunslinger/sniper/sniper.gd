@@ -1,6 +1,7 @@
 class_name Sniper
 extends Gunslinger
 
+
 # Initialize stats
 func _init():
 	life = 8

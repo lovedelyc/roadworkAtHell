@@ -1,10 +1,12 @@
 class_name Enemy
 extends Unit
 
-#attributes
+
+# Attributes
 var unit_name: String = "Enemy"
 
-#attempt to move
+
+# Attempt to move
 func attempt_move(distance: int):
 	#notify the warlock to check for the Pierce effect
 	for player in get_tree().get_nodes_in_group("heroes"):

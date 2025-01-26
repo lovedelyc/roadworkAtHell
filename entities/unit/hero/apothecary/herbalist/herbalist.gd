@@ -1,6 +1,7 @@
 class_name Herbalist
 extends Apothecary
 
+
 # Initialize stats
 func _init():
 	life = 8

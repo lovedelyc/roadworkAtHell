@@ -1,6 +1,7 @@
 class_name Gambler
 extends Divinespeaker
 
+
 # Initialize stats
 func _init():
 	life = 8

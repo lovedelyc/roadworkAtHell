@@ -1,7 +1,14 @@
 class_name Shaman
 extends Mystical
 
-#initialize stats
+
+# Constants for scythe skill
+const MAGIC_DAMAGE = 10
+const BLEED_DAMAGE = 2
+const BLEED_TURNS = 3
+
+
+# Initialize stats
 func _init():
 	life = 10
 	soul = 10
@@ -11,23 +18,18 @@ func _init():
 	spritesheet = preload("res://entities/unit/hero/mystical/shaman/shaman_anim.png")
 
 
-#constants for scythe skill
-const MAGIC_DAMAGE = 10
-const BLEED_DAMAGE = 2
-const BLEED_TURNS = 3
-
-
-#scythe: devastating magical attack and applies bleed effect
+# Scythe: devastating magical attack and applies bleed effect
 func scythe(enemies_in_front: Array[Unit]):
 	if enemies_in_front.size() == 0:
 		print("No enemies in front to attack with Scythe.")
 		return
-
+	
 	print("%s uses Scythe!" % name)
-
+	
 	for enemy in enemies_in_front:
 		enemy.take_damage(MAGIC_DAMAGE, "magic")
 		apply_bleed(enemy)
+
 
 func apply_bleed(enemy: Unit):
 	print("%s is bleeding for %d damage for %d turns!" % [enemy.name, BLEED_DAMAGE, BLEED_TURNS])

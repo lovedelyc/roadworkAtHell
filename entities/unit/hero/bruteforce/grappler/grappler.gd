@@ -1,6 +1,7 @@
 class_name Grappler
 extends Bruteforce
 
+
 # Initialize stats
 func _init():
 	life = 15

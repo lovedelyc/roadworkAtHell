@@ -1,6 +1,7 @@
 class_name Priest
 extends Divinespeaker
 
+
 # Initialize stats
 func _init():
 	life = 12
