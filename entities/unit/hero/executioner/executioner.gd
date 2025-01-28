@@ -1,2 +1,2 @@
 class_name Executioner
-extends Hero
+extends Unit

@@ -1,2 +1,2 @@
 class_name Gunslinger
-extends Hero
+extends Unit

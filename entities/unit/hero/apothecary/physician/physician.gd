@@ -1,7 +1,7 @@
 class_name Physician
 extends Apothecary
 
-# Initialize stats
+#initialize stats
 func _init():
 	life = 10
 	soul = 9

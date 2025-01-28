@@ -1,7 +1,7 @@
 class_name Biomechanic
 extends Apothecary
 
-# Initialize stats
+#initialize stats
 func _init():
 	life = 7
 	soul = 13

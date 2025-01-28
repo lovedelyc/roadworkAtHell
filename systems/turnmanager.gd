@@ -88,6 +88,7 @@ func unit_performs_action(unit, action_type):
 	notify_ally_action(unit, action_type)
 	print("%s performs %s action." % [unit.name, action_type])
 
+#move a unit to the front of the turn queue
 func move_to_front(unit: Unit):
 	if unit in turn_queue:
 		turn_queue.erase(unit)
@@ -95,3 +96,12 @@ func move_to_front(unit: Unit):
 		print("%s moved to the front of the turn queue." % unit.name)
 	else:
 		print("%s is not in the turn queue." % unit.name)
+
+# New method to set priority for the next turn
+func set_priority_for_next_turn(unit: Unit):
+	if unit in turn_queue:
+		turn_queue.erase(unit)  # Remove the unit from its current position
+		turn_queue.insert(0, unit)  # Insert it at the front of the turn queue
+		print("%s will act first next turn!" % unit.name)
+	else:
+		print("%s is not in the turn queue!" % unit.name)

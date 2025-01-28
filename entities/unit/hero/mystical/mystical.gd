@@ -1,5 +1,5 @@
 class_name Mystical
-extends Hero
+extends Unit
 
 #tracks which ally has the "splithairs" buff
 var buffed_ally: Unit = null

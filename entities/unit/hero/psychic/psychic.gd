@@ -1,2 +1,2 @@
 class_name Psychic
-extends Hero
+extends Unit

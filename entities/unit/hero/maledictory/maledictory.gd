@@ -1,5 +1,5 @@
 class_name Maledictory
-extends Hero
+extends Unit
 
 #poison: deals 2 psychic damage at the end of the enemy's turn indefinitely
 

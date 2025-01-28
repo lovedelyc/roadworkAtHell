@@ -1,2 +1,2 @@
 class_name Apothecary
-extends Hero
+extends Unit

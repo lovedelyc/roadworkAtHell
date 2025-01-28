@@ -1,2 +1,2 @@
 class_name Confaloniere
-extends Hero
+extends Unit
