@@ -10,8 +10,11 @@ var health: int = 100
 var max_health: int = 100
 var movement_range: int = 6
 var armor: int = 0
+var ignore_resistance: bool = false
 var max_armor: int = 10
 var is_ethereal: bool = false
+var action_points: int = 0
+var attack_cost: int = 0
 
 #tracks status effects on the unit
 var status_effects: Dictionary = {}
@@ -87,3 +90,7 @@ func process_buffs():
 		if buff["duration"] <= 0:
 			buffs.erase(buff)
 			print("%s's buff expired." % name)
+
+#reset the ignore resistance option after each turn
+func reset_ignore_resistance():
+	ignore_resistance = false

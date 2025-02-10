@@ -53,6 +53,11 @@ func end_turn():
 		current_unit.on_turn_end()
 	print("%s's turn ends." % current_unit.name)
 	
+	#reset the ignore resistance option for all units
+	for unit in units:
+		if unit is Unit:
+			unit.reset_ignore_resistance()
+	
 	#rotate the queue to the next unit
 	turn_queue.append(turn_queue.pop_front())
 
